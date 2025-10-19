@@ -2,6 +2,7 @@
 
 import { useMaintenance } from '../contexts/MaintenanceContext';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function AdminPage() {
   const { 
@@ -63,8 +64,18 @@ export default function AdminPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/Logo B.T.T.svg"
+              alt="BTTGN Logo"
+              width={200}
+              height={80}
+              priority
+              className="max-w-full h-auto"
+            />
+          </div>
           <h1 className="text-4xl font-bold mb-4" style={{color: '#4473c5'}}>
-            Administration BTTGN
+            Administration
           </h1>
           <p className="text-lg" style={{color: '#4473c5'}}>
             Gestion du mode maintenance

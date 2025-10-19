@@ -3,6 +3,7 @@
 import { useMaintenance } from './contexts/MaintenanceContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
   const { isMaintenanceMode } = useMaintenance();
@@ -22,11 +23,18 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center" style={{backgroundColor: '#FFFFFF'}}>
       <div className="text-center space-y-8 p-8">
-        {/* Logo/Titre BTTGN */}
+        {/* Logo BTTGN */}
         <div className="space-y-4">
-          <h1 className="text-6xl md:text-8xl font-bold tracking-wider" style={{color: '#4473c5'}}>
-            BTTGN
-          </h1>
+          <div className="flex justify-center">
+            <Image
+              src="/Logo B.T.T.svg"
+              alt="BTTGN Logo"
+              width={300}
+              height={120}
+              priority
+              className="max-w-full h-auto"
+            />
+          </div>
           <div className="w-24 h-1 mx-auto rounded-full" style={{backgroundColor: '#4473c5'}}></div>
         </div>
 

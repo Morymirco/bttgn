@@ -1,6 +1,7 @@
 'use client';
 
 import { useMaintenance } from '../contexts/MaintenanceContext';
+import Image from 'next/image';
 
 export default function MaintenancePage() {
   const { maintenanceData } = useMaintenance();
@@ -32,8 +33,18 @@ export default function MaintenancePage() {
           </div>
         </div>
 
-        {/* Titre */}
+        {/* Logo et Titre */}
         <div className="space-y-4">
+          <div className="flex justify-center mb-4">
+            <Image
+              src="/Logo B.T.T.svg"
+              alt="BTTGN Logo"
+              width={200}
+              height={80}
+              priority
+              className="max-w-full h-auto"
+            />
+          </div>
           <h1 className="text-4xl md:text-6xl font-bold" style={{color: '#4473c5'}}>
             Maintenance
           </h1>
