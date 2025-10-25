@@ -87,7 +87,7 @@ export default function Home() {
         
       {/* Hero Section */}
       <motion.section 
-        className="relative min-h-screen flex items-end justify-start overflow-hidden z-10" 
+        className="relative min-h-screen flex items-end justify-start overflow-hidden md:overflow-visible z-10" 
         style={{marginTop: '-120px', paddingTop: '120px', paddingBottom: '80px'}}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

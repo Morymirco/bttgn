@@ -27,7 +27,7 @@ export default function ContactSection() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch" style={{gridTemplateColumns: '1fr 1.5fr'}}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch lg:grid-cols-[1fr_1.5fr]">
           {/* Left Section - Contact Form */}
           <motion.div
             className="space-y-6 flex flex-col justify-center"
@@ -140,7 +140,7 @@ export default function ContactSection() {
 
           {/* Right Section - Contact Image */}
           <motion.div
-            className="relative flex items-center w-full"
+            className="relative flex items-center w-full hidden lg:flex"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}

@@ -73,7 +73,7 @@ export default function Header() {
               <div key={link.name} className="relative">
                 <Link
                   href={link.href}
-                  className="text-sm font-medium hover:opacity-80 transition-opacity text-black"
+                  className="text-sm font-medium text-black relative group transition-all duration-300"
                   onMouseEnter={() => link.hasDropdown && setIsServicesOpen(true)}
                   onMouseLeave={() => link.hasDropdown && setIsServicesOpen(false)}
                 >
@@ -83,6 +83,8 @@ export default function Header() {
                       <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
                   )}
+                  {/* Underline animation */}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#F4A301] transition-all duration-300 group-hover:w-full"></span>
                 </Link>
                 
                 {/* Services Dropdown */}
@@ -167,12 +169,11 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button 
             className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors relative z-50"
-            style={{ backgroundColor: 'rgba(255,0,0,0.1)' }} // Debug: fond rouge léger
+            // style={{ backgroundColor: 'rgba(255,0,0,0.1)' }} // Debug: fond rouge léger
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               console.log('Mobile menu clicked, current state:', isMobileMenuOpen);
-              alert('Menu clicked!'); // Test simple
               setIsMobileMenuOpen(!isMobileMenuOpen);
             }}
           >
