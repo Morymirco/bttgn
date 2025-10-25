@@ -119,23 +119,23 @@ export default function ContactSection() {
 
           {/* Right Section - Contact Image */}
           <motion.div
-            className="relative flex items-center"
+            className="relative flex items-center w-full"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
             <motion.div
-              className="w-full max-w-md mx-auto h-96 rounded-2xl overflow-hidden"
+              className="w-full max-w-lg mx-auto h-full rounded-2xl overflow-hidden"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
               <img
-                src="/contact.png"
-                alt="Contact information and construction images"
-                className="w-full h-full object-cover"
+                src="/services.svg"
+                alt="Services BTT"
+                className="w-full h-full object-contain"
               />
             </motion.div>
           </motion.div>

@@ -172,24 +172,18 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src="/house.jpg"
-                  alt="Maison moderne BTT"
-                  className="w-full h-96 object-cover"
-                />
+                     <div>
+                       <img 
+                         src="/about.svg"
+                         alt="À propos BTT"
+                         className="w-full h-150 object-cover"
+                       />
                 {/* Card en haut */}
-                <div className="absolute top-0 left-0 transform -translate-y-1/2 bg-white rounded-lg p-4 shadow-lg max-w-xs text-center">
+                {/* <div className="absolute top-0 left-0 transform -translate-y-1/2 bg-white rounded-lg p-4 shadow-lg max-w-xs text-center">
                   <p className="font-bold text-gray-800 text-lg">
                     Expertise & Innovation
                   </p>
-                </div>
-                {/* Card en bas */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-white rounded-lg p-4 shadow-lg max-w-xs text-center">
-                  <p className="font-bold text-gray-800 text-lg">
-                    Savoir-faire et passion, pour bâtir ensemble.
-                  </p>
-                </div>
+                </div> */}
               </div>
             </motion.div>
 
@@ -202,15 +196,23 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <div>
-                <motion.h2 
-                  className="text-4xl font-bold mb-4 text-black"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  À propos du BTT
-                </motion.h2>
+                       <motion.h2 
+                         className="mb-4"
+                         style={{
+                           fontFamily: 'var(--font-poppins)',
+                           fontWeight: 400,
+                           fontSize: '42px',
+                           lineHeight: '40px',
+                           letterSpacing: '0%',
+                           color: '#012233'
+                         }}
+                         initial={{ opacity: 0, y: 20 }}
+                         whileInView={{ opacity: 1, y: 0 }}
+                         transition={{ duration: 0.6, delay: 0.4 }}
+                         viewport={{ once: true }}
+                       >
+                         À propos du BTT
+                       </motion.h2>
                 <motion.div 
                   className="w-16 h-1 mb-6" 
                   style={{backgroundColor: '#F4A301'}}
@@ -221,13 +223,20 @@ export default function Home() {
                 ></motion.div>
               </div>
               
-              <motion.p 
-                className="text-lg leading-relaxed text-black"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                viewport={{ once: true }}
-              >
+                     <motion.p 
+                       style={{
+                         fontFamily: 'var(--font-poppins)',
+                         fontWeight: 400,
+                         fontSize: '14px',
+                         lineHeight: '28px',
+                         letterSpacing: '0%',
+                         color: '#012233'
+                       }}
+                       initial={{ opacity: 0, y: 20 }}
+                       whileInView={{ opacity: 1, y: 0 }}
+                       transition={{ duration: 0.6, delay: 0.8 }}
+                       viewport={{ once: true }}
+                     >
                 Créé en 1992 par Sâa Benjamin Sandouno, Géomètre Expert Agréé et membre fondateur de l'Ordre des Géomètres-Experts de Guinée (OGEG), le Bureau des Travaux Topographiques (BTT) est l'un des cabinets de référence dans le domaine de la topographie, de l'expertise foncière et immobilière en Guinée. Depuis plus de 20 ans, le BTT accompagne les particuliers, entreprises, institutions publiques et projets miniers dans la gestion et la valorisation du foncier. Grâce à une expertise reconnue et une équipe hautement qualifiée, le cabinet a su s'imposer comme un acteur incontournable du secteur.
               </motion.p>
 
@@ -240,7 +249,15 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button variant="outline" href="/about">
+                <Button 
+                  variant="outline" 
+                  href="/about"
+                  style={{
+                    borderColor: '#F4A300',
+                    color: '#F4A300',
+                    fontFamily: 'var(--font-poppins)'
+                  }}
+                >
                   En savoir plus →
                 </Button>
               </motion.div>

@@ -18,11 +18,15 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <div className="w-8 h-8 bg-[#F4A301] rounded-full"></div>
-              </div>
-              <h3 className="text-xl font-bold">BTT</h3>
+            <div className="flex items-center">
+              <Image
+                src="/logo.svg"
+                alt="BTT Logo"
+                width={80}
+                height={80}
+                className="text-white"
+                style={{ filter: 'brightness(0) invert(1)' }}
+              />
             </div>
             <div className="space-y-2">
               <p className="text-sm">Bureau des Travaux Topographiques -</p>
