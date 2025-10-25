@@ -92,63 +92,66 @@ export default function Home() {
         transition={{ duration: 0.8 }}
       >
         {/* Content */}
-        <div className="relative z-10 text-left px-12 max-w-6xl" style={{marginTop: '120px', marginLeft: '80px'}}>
+        <div className="relative z-10 text-left px-4 md:px-12 max-w-6xl mx-auto md:mx-0" style={{marginTop: '120px', marginLeft: '0px'}}>
+          <div className="md:ml-20">
 
           {/* Main Headline */}
           <motion.h1 
-            className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
+            className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Précision, expertise et fiabilité au service<br />
-            de vos projets fonciers.
+            <span className="block">Précision, expertise et fiabilité au service</span>
+            <span className="block">de vos projets fonciers.</span>
           </motion.h1>
 
           {/* Description */}
           <motion.p 
-            className="text-white mb-12 max-w-3xl leading-relaxed" 
-            style={{fontSize: '20px'}}
+            className="text-white mb-8 md:mb-12 max-w-3xl leading-relaxed text-sm sm:text-base md:text-lg lg:text-xl" 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Depuis plus de 20 ans, le Bureau des Travaux Topographiques<br />
-            accompagne les institutions, entreprises et particuliers dans<br />
-            leurs projets.
+            <span className="block">Depuis plus de 20 ans, le Bureau des Travaux Topographiques</span>
+            <span className="block">accompagne les institutions, entreprises et particuliers dans</span>
+            <span className="block">leurs projets.</span>
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-start items-start"
+            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-start items-start w-full sm:w-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <motion.div
+              className="w-full sm:w-auto mb-4 sm:mb-0"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.8 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="primary" href="/contact">
+              <Button variant="primary" href="/contact" className="w-full sm:w-auto">
                 Demander un devis
               </Button>
             </motion.div>
 
             <motion.div
+              className="w-full sm:w-auto"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.9 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="outline" href="/contact">
+              <Button variant="outline" href="/contact" className="w-full sm:w-auto">
                 Nous contacter
               </Button>
             </motion.div>
           </motion.div>
+          </div>
         </div>
       </motion.section>
       </div>

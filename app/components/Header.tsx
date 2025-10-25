@@ -9,6 +9,8 @@ import { motion } from 'framer-motion';
 export default function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState('Français');
 
   const navigationLinks = [
@@ -138,8 +140,9 @@ export default function Header() {
               )}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button - Desktop */}
             <motion.div
+              className="hidden md:block"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -147,20 +150,248 @@ export default function Header() {
                 Demander un devis
               </Button>
             </motion.div>
+
+            {/* CTA Button - Mobile */}
+            <motion.button
+              className="md:hidden p-2"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setIsDrawerOpen(true)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{color: '#4473c5'}}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
-          <motion.button 
-            className="md:hidden p-2"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+          <button 
+            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors relative z-50"
+            style={{ backgroundColor: 'rgba(255,0,0,0.1)' }} // Debug: fond rouge léger
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log('Mobile menu clicked, current state:', isMobileMenuOpen);
+              alert('Menu clicked!'); // Test simple
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{color: '#4473c5'}}>
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </motion.button>
+            {isMobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{color: '#4473c5'}}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{color: '#4473c5'}}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </motion.div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <motion.div
+          className="md:hidden bg-white shadow-lg border-t relative z-40"
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3 }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="px-6 py-4 space-y-4">
+            {/* Mobile Navigation Links */}
+            <nav className="space-y-3">
+              {navigationLinks.map((link) => (
+                <div key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="block text-sm font-medium text-black hover:text-[#4473c5] transition-colors py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                  
+                  {/* Mobile Services Dropdown */}
+                  {link.hasDropdown && (
+                    <div className="ml-4 space-y-2">
+                      {link.dropdownItems?.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="block text-sm text-gray-600 hover:text-[#4473c5] transition-colors py-1"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+
+            {/* Mobile Language Selector */}
+            <div className="pt-4 border-t border-gray-200">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium text-black">Langue</span>
+                <div className="flex space-x-2">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setCurrentLanguage(lang.name);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`px-3 py-1 text-xs rounded-full transition-colors ${
+                        currentLanguage === lang.name
+                          ? 'bg-[#4473c5] text-white'
+                          : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      }`}
+                    >
+                      {lang.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile CTA Button */}
+            <div className="pt-4">
+              <motion.button
+                className="w-full bg-[#4473c5] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#3a5f9a] transition-colors"
+              onClick={() => {
+                console.log('Opening drawer, closing mobile menu');
+                setIsMobileMenuOpen(false);
+                setIsDrawerOpen(true);
+              }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Demander un devis
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Drawer for "Demander un devis" */}
+      {isDrawerOpen && (
+        <motion.div
+          className="fixed inset-0 z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {/* Backdrop */}
+          <motion.div
+            className="absolute inset-0 bg-black bg-opacity-50"
+            onClick={() => setIsDrawerOpen(false)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+          
+          {/* Drawer Content */}
+          <motion.div
+            className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl p-6"
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '100%' }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-bold text-black">Demander un devis</h3>
+              <motion.button
+                onClick={() => setIsDrawerOpen(false)}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </motion.button>
+            </div>
+
+            {/* Form */}
+            <form className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Nom complet
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4473c5] focus:border-transparent"
+                  placeholder="Votre nom"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4473c5] focus:border-transparent"
+                  placeholder="votre@email.com"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Téléphone
+                </label>
+                <input
+                  type="tel"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4473c5] focus:border-transparent"
+                  placeholder="+224 XXX XXX XXX"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Type de projet
+                </label>
+                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4473c5] focus:border-transparent">
+                  <option>Topographie & Cartographie</option>
+                  <option>Expertise foncière</option>
+                  <option>Aménagement & Lotissement</option>
+                  <option>Audit immobilier</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Message
+                </label>
+                <textarea
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4473c5] focus:border-transparent resize-none"
+                  placeholder="Décrivez votre projet..."
+                />
+              </div>
+
+              {/* Submit Button */}
+              <motion.button
+                type="submit"
+                className="w-full bg-[#4473c5] text-white py-4 px-6 rounded-lg font-medium hover:bg-[#3a5f9a] transition-colors"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  alert('Demande envoyée ! Nous vous contacterons bientôt.');
+                  setIsDrawerOpen(false);
+                }}
+              >
+                Envoyer la demande
+              </motion.button>
+            </form>
+          </motion.div>
+        </motion.div>
+      )}
     </motion.header>
   );
 }

@@ -108,7 +108,7 @@ export default function ContactSection() {
               >
                 <Button
                   variant="outline"
-                  onClick={handleSubmit}
+                  onClick={() => handleSubmit}
                   className="w-full"
                 >
                   Envoyer

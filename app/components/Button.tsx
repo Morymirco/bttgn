@@ -8,6 +8,7 @@ interface ButtonProps {
   href?: string;
   className?: string;
   disabled?: boolean;
+  style?: React.CSSProperties;
 }
 
 export default function Button({ 
@@ -17,7 +18,8 @@ export default function Button({
   onClick, 
   href, 
   className = '', 
-  disabled = false 
+  disabled = false,
+  style = {}
 }: ButtonProps) {
   const baseClasses = "font-medium hover:opacity-90 transition-opacity rounded-full";
   
@@ -42,7 +44,8 @@ export default function Button({
   const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
   const buttonStyles = {
     ...colorStyles[variant],
-    borderRadius: '30px'
+    borderRadius: '30px',
+    ...style
   };
 
   if (href) {
