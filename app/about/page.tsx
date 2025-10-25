@@ -155,10 +155,10 @@ export default function AboutPage() {
         </div>
       </motion.section>
 
-      {/* Mission & Vision */}
+      {/* Nos Valeurs */}
       <motion.section 
         className="py-20"
-        style={{ backgroundColor: '#F0F7FF' }}
+        style={{ backgroundColor: '#F8F8F8' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -174,62 +174,162 @@ export default function AboutPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Notre Mission & Vision
+              Nos Valeurs
             </motion.h2>
-            <motion.div 
-              className="w-24 h-1 mx-auto mb-8" 
-              style={{ backgroundColor: '#F4A301' }}
-              initial={{ width: 0 }}
-              whileInView={{ width: 96 }}
+            <motion.p 
+              className="text-lg text-gray-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-            />
+            >
+              Les principes qui guident notre travail quotidien et notre engagement envers nos clients.
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Mission */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Précision */}
             <motion.div 
-              className="text-center p-8 bg-white rounded-2xl shadow-lg"
+              className="p-6 bg-white rounded-xl"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#F4A301' }}>
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+              <div className="space-y-6">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <img src="/precison.svg" alt="Précision" className="w-8 h-8" style={{ color: '#F4A301' }} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#012233' }}>
+                    Précision
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed" style={{ fontFamily: 'var(--font-poppins)' }}>
+                    Nous garantissons une exactitude maximale dans chacune de nos interventions techniques.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#012233' }}>
-                Notre Mission
-              </h3>
-              <p className="text-gray-600 leading-relaxed" style={{ fontFamily: 'var(--font-poppins)' }}>
-                Fournir des services topographiques et d'expertise foncière de haute qualité, en respectant les normes internationales et en contribuant au développement durable de la Guinée.
-              </p>
             </motion.div>
 
-            {/* Vision */}
+            {/* Intégrité */}
             <motion.div 
-              className="text-center p-8 bg-white rounded-2xl shadow-lg"
+              className="p-6 bg-white rounded-xl"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="space-y-6">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <img src="/integrite.svg" alt="Intégrité" className="w-8 h-8" style={{ color: '#F4A301' }} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#012233' }}>
+                    Intégrité
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed" style={{ fontFamily: 'var(--font-poppins)' }}>
+                    Nos pratiques sont fondées sur l'honnêteté, la transparence et le respect des normes.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Innovation */}
+            <motion.div 
+              className="p-6 bg-white rounded-xl"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#F4A301' }}>
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
+              <div className="space-y-6">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <img src="/innovation.svg" alt="Innovation" className="w-8 h-8" style={{ color: '#F4A301' }} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#012233' }}>
+                    Innovation
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed" style={{ fontFamily: 'var(--font-poppins)' }}>
+                    Nous adoptons les technologies les plus avancées pour optimiser nos services.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#012233' }}>
-                Notre Vision
-              </h3>
-              <p className="text-gray-600 leading-relaxed" style={{ fontFamily: 'var(--font-poppins)' }}>
-                Devenir le leader incontournable de la topographie et de l'expertise foncière en Afrique de l'Ouest, en innovant constamment et en formant la prochaine génération d'experts.
-              </p>
+            </motion.div>
+
+            {/* Professionnalisme */}
+            <motion.div 
+              className="p-6 bg-white rounded-xl"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="space-y-6">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <img src="/pro.svg" alt="Professionnalisme" className="w-8 h-8" style={{ color: '#F4A301' }} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#012233' }}>
+                    Professionnalisme
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed" style={{ fontFamily: 'var(--font-poppins)' }}>
+                    Une équipe qualifiée et expérimentée au service de l'excellence.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Engagement */}
+            <motion.div 
+              className="p-6 bg-white rounded-xl"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="space-y-6">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <img src="/engagement.svg" alt="Engagement" className="w-8 h-8" style={{ color: '#F4A301' }} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#012233' }}>
+                    Engagement
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed" style={{ fontFamily: 'var(--font-poppins)' }}>
+                    Nous nous engageons pleinement dans la réussite de chaque projet confié.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Expertise */}
+            <motion.div 
+              className="p-6 bg-white rounded-xl"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="space-y-6">
+                <div className="w-12 h-12 flex items-center justify-center">
+                  <img src="/expertige.svg" alt="Expertise" className="w-8 h-8" style={{ color: '#F4A301' }} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#012233' }}>
+                    Expertise
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed" style={{ fontFamily: 'var(--font-poppins)' }}>
+                    Plus de 30 ans d'expérience dans les domaines de la topographie et de l'aménagement.
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -255,92 +355,87 @@ export default function AboutPage() {
             >
               Notre Équipe
             </motion.h2>
-            <motion.div 
-              className="w-24 h-1 mx-auto mb-8" 
-              style={{ backgroundColor: '#F4A301' }}
-              initial={{ width: 0 }}
-              whileInView={{ width: 96 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            />
             <motion.p 
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              className="text-lg text-gray-600 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              Une équipe d'experts passionnés et qualifiés
+              Une équipe engagée, experte et passionnée par la précision.
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Fondateur */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Sâa Benjamin Sandouno */}
             <motion.div 
-              className="text-center p-6 bg-white rounded-2xl shadow-lg"
+              className="text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+              <div className="w-72 h-56 mx-auto mb-8 rounded-2xl overflow-hidden">
+                <img 
+                  src="https://www.morykoulibaly.me/images/profile-mory.png"
+                  alt="Sâa Benjamin Sandouno"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="text-xl font-bold mb-2" style={{ color: '#012233' }}>
+              <h3 className="text-2xl font-bold mb-3" style={{ color: '#012233' }}>
                 Sâa Benjamin Sandouno
               </h3>
-              <p className="text-sm text-gray-500 mb-2">Fondateur & Géomètre Expert</p>
-              <p className="text-sm text-gray-600" style={{ fontFamily: 'var(--font-poppins)' }}>
-                Membre fondateur de l'OGEG, expert reconnu avec plus de 30 ans d'expérience
+              <p className="text-base" style={{ color: '#F4A301', fontFamily: 'var(--font-poppins)' }}>
+                Fondateur & Géomètre Expert Agréé
               </p>
             </motion.div>
 
-            {/* Équipe technique */}
+            {/* David Sandouno */}
             <motion.div 
-              className="text-center p-6 bg-white rounded-2xl shadow-lg"
+              className="text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
+              <div className="w-72 h-56 mx-auto mb-8 rounded-2xl overflow-hidden">
+                <img 
+                  src="https://www.morykoulibaly.me/images/profile-mory.png"
+                  alt="David Sandouno"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="text-xl font-bold mb-2" style={{ color: '#012233' }}>
-                Équipe Technique
+              <h3 className="text-2xl font-bold mb-3" style={{ color: '#012233' }}>
+                David Sandouno
               </h3>
-              <p className="text-sm text-gray-500 mb-2">Géomètres & Techniciens</p>
-              <p className="text-sm text-gray-600" style={{ fontFamily: 'var(--font-poppins)' }}>
-                Des professionnels qualifiés et certifiés, formés aux dernières technologies
+              <p className="text-base" style={{ color: '#F4A301', fontFamily: 'var(--font-poppins)' }}>
+                Géomètre Expert Agréé
               </p>
             </motion.div>
 
-            {/* Support client */}
+            {/* Kadiatou Sow */}
             <motion.div 
-              className="text-center p-6 bg-white rounded-2xl shadow-lg"
+              className="text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z" />
-                </svg>
+              <div className="w-72 h-56 mx-auto mb-8 rounded-2xl overflow-hidden">
+                <img 
+                  src="https://www.morykoulibaly.me/images/profile-mory.png"
+                  alt="Kadiatou Sow"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="text-xl font-bold mb-2" style={{ color: '#012233' }}>
-                Support Client
+              <h3 className="text-2xl font-bold mb-3" style={{ color: '#012233' }}>
+                Kadiatou Sow
               </h3>
-              <p className="text-sm text-gray-500 mb-2">Service Client</p>
-              <p className="text-sm text-gray-600" style={{ fontFamily: 'var(--font-poppins)' }}>
-                Une équipe dédiée à votre satisfaction et à l'accompagnement de vos projets
+              <p className="text-base" style={{ color: '#F4A301', fontFamily: 'var(--font-poppins)' }}>
+                Ingénieure Génie Civil
               </p>
             </motion.div>
           </div>
