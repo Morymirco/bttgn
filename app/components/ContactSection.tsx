@@ -37,10 +37,30 @@ export default function ContactSection() {
             viewport={{ once: true }}
           >
             <div>
-              <h2 className="text-4xl font-bold text-black mb-4">
+              <h2 
+                className="mb-4"
+                style={{
+                  fontFamily: 'var(--font-montserrat)',
+                  fontWeight: 700,
+                  fontSize: '43px',
+                  lineHeight: '40px',
+                  letterSpacing: '0%',
+                  color: '#012233'
+                }}
+              >
                 Contactez-nous
               </h2>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <p 
+                className="leading-relaxed"
+                style={{
+                  fontFamily: 'var(--font-montserrat)',
+                  fontWeight: 400,
+                  fontSize: '12px',
+                  lineHeight: '18px',
+                  letterSpacing: '0%',
+                  color: '#012233'
+                }}
+              >
                 Vous avez un projet ou besoin d'une expertise ? Contactez le Bureau des Travaux Topographiques pour bénéficier d'un accompagnement fiable et personnalisé.
               </p>
             </div>
@@ -101,6 +121,7 @@ export default function ContactSection() {
               </motion.div>
 
               <motion.div
+                className="flex justify-end"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
@@ -109,7 +130,7 @@ export default function ContactSection() {
                 <Button
                   variant="outline"
                   onClick={() => handleSubmit}
-                  className="w-full"
+                  className="w-auto"
                 >
                   Envoyer
                 </Button>

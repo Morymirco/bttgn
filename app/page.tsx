@@ -81,7 +81,9 @@ export default function Home() {
           />
         </div>
         
-        <Header />
+        <div className="relative z-20">
+          <Header />
+        </div>
         
       {/* Hero Section */}
       <motion.section 
@@ -244,7 +246,7 @@ export default function Home() {
               </motion.p>
 
               <motion.div 
-                className="pt-4"
+                className="pt-4 flex justify-end"
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1.0 }}

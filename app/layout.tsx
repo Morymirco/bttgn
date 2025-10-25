@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { Geist, Geist_Mono, Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
 import { MaintenanceProvider } from "./contexts/MaintenanceContext";
 
@@ -19,6 +19,12 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "B.T.T. - Bureau des Travaux Topographiques",
   description: "Depuis plus de 20 ans, le Bureau des Travaux Topographiques accompagne les institutions, entreprises et particuliers dans leurs projets fonciers avec précision, expertise et fiabilité.",
@@ -32,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${montserrat.variable} antialiased`}
       >
         <MaintenanceProvider>
           {children}
