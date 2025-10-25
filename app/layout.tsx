@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
 import { MaintenanceProvider } from "./contexts/MaintenanceContext";
+import Loader from "./components/Loader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,11 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "B.T.T. - Bureau des Travaux Topographiques",
   description: "Depuis plus de 20 ans, le Bureau des Travaux Topographiques accompagne les institutions, entreprises et particuliers dans leurs projets fonciers avec précision, expertise et fiabilité.",
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
@@ -40,6 +46,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${montserrat.variable} antialiased`}
       >
+        <Loader />
         <MaintenanceProvider>
           {children}
         </MaintenanceProvider>

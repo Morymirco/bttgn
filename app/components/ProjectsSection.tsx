@@ -1,19 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Button from './Button';
 
 export default function ProjectsSection() {
   const projects = [
     {
       id: 1,
-      title: "Chemin de fer CBK",
+      slug: "amenagement-port-conakry",
+      title: "Aménagement du Port de Conakry",
       description: "Pour la Compagnie des Bauxites de Kindia (CBK), le BTT a réalisé le relevé topographique complet du chemin de fer minier.",
       image: "/projet1.jpg",
-      alt: "Chemin de fer CBK"
+      alt: "Aménagement du Port de Conakry"
     },
     {
       id: 2,
+      slug: "chantier-minier-guinee",
       title: "Chantier minier",
       description: "Relevé topographique et suivi des travaux d'excavation pour un projet minier d'envergure en Guinée.",
       image: "/projet2.jpg",
@@ -21,6 +24,7 @@ export default function ProjectsSection() {
     },
     {
       id: 3,
+      slug: "infrastructure-routiere",
       title: "Infrastructure routière",
       description: "Aménagement et lotissement d'une zone industrielle avec création de voies d'accès et parkings.",
       image: "/projet3.jpg",
@@ -65,33 +69,34 @@ export default function ProjectsSection() {
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
             >
-              {/* Project Image */}
-              <div className="relative h-64 p-4">
-                <div className="w-full h-full rounded-lg overflow-hidden border" style={{ borderColor: '#E9E9E9' }}>
-                  <img
-                    src={project.image}
-                    alt={project.alt}
-                    className="w-full h-full object-cover"
-                  />
+              <Link href={`/portfolio/${project.slug}`}>
+                {/* Project Image */}
+                <div className="relative h-64 p-4">
+                  <div className="w-full h-full rounded-lg overflow-hidden border" style={{ borderColor: '#E9E9E9' }}>
+                    <img
+                      src={project.image}
+                      alt={project.alt}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-black mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{color: '#737373'}}>
-                  {project.description}{' '}
-                  <motion.a
-                    href={`/projets/${project.id}`}
-                    className="text-[#00B7C3] text-sm font-medium hover:text-[#F4A301] transition-colors"
-                    whileHover={{ x: 5 }}
-                  >
-                    Voir plus
-                  </motion.a>
-                </p>
-              </div>
+                {/* Project Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-black mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{color: '#737373'}}>
+                    {project.description}{' '}
+                    <motion.span
+                      className="text-[#00B7C3] text-sm font-medium hover:text-[#F4A301] transition-colors cursor-pointer"
+                      whileHover={{ x: 5 }}
+                    >
+                      Voir plus
+                    </motion.span>
+                  </p>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -108,7 +113,7 @@ export default function ProjectsSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button variant="outline" href="/projets">
+            <Button variant="outline" href="/portfolio">
               Voir tous nos projets →
             </Button>
           </motion.div>
