@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from './Button';
+import { motion } from 'framer-motion';
 
 export default function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -34,9 +35,22 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full py-4 px-6">
+    <motion.header 
+      className="w-full py-4 px-6"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="bg-white/90 backdrop-blur-sm shadow-lg px-6 py-4 flex items-center justify-between" style={{borderRadius: '30px'}}>
+        <motion.div 
+          className="bg-white/90 backdrop-blur-sm shadow-lg px-6 py-4 flex items-center justify-between" 
+          style={{borderRadius: '30px'}}
+          whileHover={{ 
+            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+            scale: 1.01
+          }}
+          transition={{ duration: 0.3 }}
+        >
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
@@ -125,19 +139,28 @@ export default function Header() {
             </div>
 
             {/* CTA Button */}
-            <Button variant="secondary" href="/contact">
-              Demander un devis
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button variant="secondary" href="/contact">
+                Demander un devis
+              </Button>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2">
+          <motion.button 
+            className="md:hidden p-2"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{color: '#4473c5'}}>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
-    </header>
+    </motion.header>
   );
 }
