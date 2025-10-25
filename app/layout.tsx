@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BTTGN - En cours de développement",
-  description: "BTTGN - Notre plateforme est en construction. Revenez bientôt pour découvrir quelque chose d'extraordinaire.",
+  title: "B.T.T. - Bureau des Travaux Topographiques",
+  description: "Depuis plus de 20 ans, le Bureau des Travaux Topographiques accompagne les institutions, entreprises et particuliers dans leurs projets fonciers avec précision, expertise et fiabilité.",
 };
 
 export default function RootLayout({

@@ -2,12 +2,15 @@
 
 import { useMaintenance } from '../contexts/MaintenanceContext';
 import Image from 'next/image';
+import Header from '../components/Header';
 
 export default function MaintenancePage() {
   const { maintenanceData } = useMaintenance();
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{backgroundColor: '#FFFFFF'}}>
-      <div className="text-center space-y-8 p-8 max-w-2xl mx-auto">
+    <div className="min-h-screen" style={{backgroundColor: '#FFFFFF'}}>
+      <Header />
+      <div className="flex items-center justify-center min-h-[calc(100vh-120px)]">
+        <div className="text-center space-y-8 p-8 max-w-2xl mx-auto">
         {/* Icône de maintenance */}
         <div className="flex justify-center">
           <div className="w-24 h-24 rounded-full flex items-center justify-center animate-pulse" style={{backgroundColor: '#4473c5'}}>
@@ -73,6 +76,7 @@ export default function MaintenancePage() {
           <p className="text-sm" style={{color: '#4473c5'}}>
             © 2025 BTTGN. Tous droits réservés.
           </p>
+        </div>
         </div>
       </div>
     </div>

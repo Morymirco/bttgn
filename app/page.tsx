@@ -4,6 +4,8 @@ import { useMaintenance } from './contexts/MaintenanceContext';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import Image from 'next/image';
+import Header from './components/Header';
+import Button from './components/Button';
 
 export default function Home() {
   const { isMaintenanceMode } = useMaintenance();
@@ -21,49 +23,55 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{backgroundColor: '#FFFFFF'}}>
-      <div className="text-center space-y-8 p-8">
-        {/* Logo BTTGN */}
-        <div className="space-y-4">
-          <div className="flex justify-center">
-            <Image
-              src="/Logo B.T.T.svg"
-              alt="BTTGN Logo"
-              width={300}
-              height={120}
-              priority
-              className="max-w-full h-auto"
-            />
-          </div>
-          <div className="w-24 h-1 mx-auto rounded-full" style={{backgroundColor: '#4473c5'}}></div>
-        </div>
-
-        {/* Message en cours de développement */}
-        <div className="space-y-6">
-          <h2 className="text-2xl md:text-3xl font-semibold" style={{color: '#4473c5'}}>
-            En cours de développement
-          </h2>
-          <p className="text-lg max-w-md mx-auto" style={{color: '#4473c5'}}>
-            Notre plateforme est en construction. 
-            <br />
-            Revenez bientôt pour découvrir quelque chose d'extraordinaire.
-          </p>
-        </div>
-
-        {/* Indicateur de progression */}
-        <div className="flex items-center justify-center space-x-2">
-          <div className="w-2 h-2 rounded-full animate-pulse" style={{backgroundColor: '#4473c5'}}></div>
-          <div className="w-2 h-2 rounded-full animate-pulse" style={{backgroundColor: '#4473c5', animationDelay: '0.2s'}}></div>
-          <div className="w-2 h-2 rounded-full animate-pulse" style={{backgroundColor: '#4473c5', animationDelay: '0.4s'}}></div>
-        </div>
-
-        {/* Footer simple */}
-        <div className="pt-8 border-t" style={{borderColor: '#4473c5'}}>
-          <p className="text-sm" style={{color: '#4473c5'}}>
-            © 2025 BTTGN. Tous droits réservés.
-          </p>
-        </div>
+    <div className="min-h-screen relative">
+      {/* Background Image with Overlay - Full Screen */}
+      <div className="fixed inset-0 z-0">
+        <div 
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
+            filter: 'blur(2px)'
+          }}
+        />
+        <div 
+          className="absolute inset-0"
+          style={{backgroundColor: 'rgba(29, 59, 73, 0.8)'}}
+        />
       </div>
+      
+      <Header />
+      
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-end justify-start overflow-hidden z-10" style={{marginTop: '-120px', paddingTop: '120px', paddingBottom: '80px'}}>
+
+        {/* Content */}
+        <div className="relative z-10 text-left px-12 max-w-6xl" style={{marginTop: '120px', marginLeft: '80px'}}>
+
+          {/* Main Headline */}
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            Précision, expertise et fiabilité au service<br />
+            de vos projets fonciers.
+          </h1>
+
+          {/* Description */}
+          <p className="text-white mb-12 max-w-3xl leading-relaxed" style={{fontSize: '20px'}}>
+            Depuis plus de 20 ans, le Bureau des Travaux Topographiques<br />
+            accompagne les institutions, entreprises et particuliers dans<br />
+            leurs projets.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-start items-start">
+            <Button variant="primary" href="/contact">
+              Demander un devis
+            </Button>
+
+            <Button variant="outline" href="/contact">
+              Nous contacter
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

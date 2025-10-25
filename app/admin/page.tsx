@@ -3,6 +3,7 @@
 import { useMaintenance } from '../contexts/MaintenanceContext';
 import { useState } from 'react';
 import Image from 'next/image';
+import Header from '../components/Header';
 
 export default function AdminPage() {
   const { 
@@ -60,8 +61,10 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen py-12" style={{backgroundColor: '#FFFFFF'}}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen" style={{backgroundColor: '#FFFFFF'}}>
+      <Header />
+      <div className="py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex justify-center mb-6">
@@ -238,6 +241,7 @@ export default function AdminPage() {
           <p className="text-sm" style={{color: '#4473c5'}}>
             © 2025 BTTGN. Administration
           </p>
+        </div>
         </div>
       </div>
     </div>
